@@ -1,0 +1,432 @@
+/*
+  Étudiant: Abdelhak KHALIFA
+  iOS-style UI + animations helpers (Dark mode FIX Bootstrap)
+*/
+
+:root{
+  --radius-xl: 1.5rem;
+  --radius-lg: 1.25rem;
+  --radius-md: 1rem;
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.08);
+  --shadow-lift: 0 16px 40px rgba(0,0,0,.14);
+
+  --bg: #f5f6fa;
+  --card: rgba(255,255,255,.72);
+  --card-solid: #ffffff;
+  --text: #0f172a;
+  --muted: rgba(15, 23, 42, .65);
+
+  --glass-border: rgba(255,255,255,.35);
+  --glass-blur: 18px;
+
+  --accent: #0d6efd; /* Bootstrap primary */
+}
+
+html, body { height: 100%; }
+
+body{
+  background: radial-gradient(1200px 600px at 10% 0%, rgba(13,110,253,.15), transparent 55%),
+              radial-gradient(900px 500px at 90% 10%, rgba(99,102,241,.12), transparent 60%),
+              var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Navbar iOS-ish */
+.navbar{
+  transition: background .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
+}
+.navbar.nav-glass{
+  background: rgba(13,110,253,.85) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+.navbar .nav-link{ opacity: .92; }
+.navbar .nav-link.active{
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* HERO */
+.hero{
+  padding-top: 3.5rem !important;
+  padding-bottom: 2.25rem !important;
+}
+.avatar{
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 7px solid rgba(255,255,255,.8);
+  box-shadow: var(--shadow-soft);
+  transition: transform .25s ease;
+}
+.avatar:hover{ transform: translateY(-4px) scale(1.01); }
+
+/* Section cards glassmorphism */
+.section-card{
+  background: var(--card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-xl);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Cards look */
+.card{ border-radius: var(--radius-xl) !important; }
+.card.border-0.shadow-sm{ box-shadow: var(--shadow-soft) !important; }
+.card.lift{
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.card.lift:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift) !important;
+}
+
+/* Badges softer */
+.badge{
+  border-radius: 999px;
+  padding: .5rem .75rem;
+}
+
+/* Inputs iOS-ish */
+.form-control, .input-group-text, .btn{
+  border-radius: 999px !important;
+}
+textarea.form-control{ border-radius: var(--radius-lg) !important; }
+
+/* Subtle separators */
+hr{ opacity: .12; }
+
+/* Footer muted */
+.text-muted{ color: var(--muted) !important; }
+
+/* ---------- Animations (scroll reveal) ---------- */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px) scale(.99);
+  transition: opacity .55s ease, transform .55s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Respect accessibility */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==================================================
+   DARK MODE (variables) + Bootstrap overrides (FIX)
+   ================================================== */
+html[data-theme="dark"] body{
+  --bg: #070b16;
+  --card: rgba(17, 26, 46, .65);
+  --card-solid: #0f172a;
+  --text: #e8eefc;
+  --muted: rgba(232, 238, 252, .72);
+  --glass-border: rgba(255,255,255,.10);
+
+  background: radial-gradient(1000px 600px at 10% 0%, rgba(13,110,253,.22), transparent 55%),
+              radial-gradient(900px 500px at 90% 10%, rgba(99,102,241,.18), transparent 60%),
+              var(--bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .navbar.nav-glass{
+  background: rgba(13,110,253,.55) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+}
+
+/* IMPORTANT: Bootstrap garde certains backgrounds en clair */
+html[data-theme="dark"] .bg-body-tertiary{
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+}
+
+/* Inputs / textarea */
+html[data-theme="dark"] .form-control,
+html[data-theme="dark"] .input-group-text{
+  background: rgba(255,255,255,.06) !important;
+  color: rgba(232, 238, 252, .92) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  box-shadow: none !important;
+}
+html[data-theme="dark"] .form-control::placeholder{
+  color: rgba(232, 238, 252, .45) !important;
+}
+
+/* Labels */
+html[data-theme="dark"] label,
+html[data-theme="dark"] .form-label{
+  color: rgba(232, 238, 252, .85) !important;
+}
+
+/* Text muted */
+html[data-theme="dark"] .text-muted{
+  color: rgba(232, 238, 252, .65) !important;
+}
+
+/* Liens visibles */
+html[data-theme="dark"] a{
+  color: rgba(120, 169, 255, .95);
+}
+html[data-theme="dark"] a:hover{
+  color: rgba(160, 200, 255, 1);
+}
+
+/* Icônes */
+html[data-theme="dark"] .bi{
+  color: rgba(232, 238, 252, .85);
+}
+
+/* Boutons outline */
+html[data-theme="dark"] .btn-outline-primary{
+  color: rgba(232, 238, 252, .92) !important;
+  border-color: rgba(255,255,255,.18) !important;
+}
+html[data-theme="dark"] .btn-outline-primary:hover{
+  background: rgba(255,255,255,.10) !important;
+}
+
+/* Cards Bootstrap */
+html[data-theme="dark"] .card{
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+}
+html[data-theme="dark"] .card .card-body{
+  color: rgba(232, 238, 252, .92);
+}
+
+/* List items (ex: langues) */
+html[data-theme="dark"] li{
+  color: rgba(232, 238, 252, .88);
+}
+
+/* Form validation messages */
+html[data-theme="dark"] .invalid-feedback{
+  color: rgba(255, 190, 190, .95);
+}
+html[data-theme="dark"] .valid-feedback{
+  color: rgba(170, 255, 210, .95);
+}
+
+/* ---------- Print ---------- */
+@media print{
+  nav, #btnTheme, #btnPrint, #contactForm, .input-group{ display:none !important; }
+  body{ background:white !important; color:black !important; }
+  .section-card{
+    background:white !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    box-shadow:none !important;
+    border:1px solid #ddd;
+  }
+}
+/* =========================
+   CARD HOVER – LIFT + GLOW
+   ========================= */
+.card{
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease,
+    background .35s ease;
+}
+
+.card:hover{
+  transform: translateY(-10px) scale(1.015);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.18),
+    0 0 0 1px rgba(255,255,255,.08);
+}
+
+/* Glow subtil */
+.card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--x,50%) var(--y,50%),
+    rgba(255,255,255,.12),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+
+.card:hover::after{
+  opacity: 1;
+}
+/* =========================
+   CARD CONTENT MICRO MOVE
+   ========================= */
+.card .card-body{
+  transition: transform .35s ease;
+}
+
+.card:hover .card-body{
+  transform: translateY(-4px);
+}
+
+.card .badge{
+  transition: transform .25s ease, background .25s ease;
+}
+
+.card:hover .badge{
+  transform: scale(1.08);
+}
+/* =========================
+   SHINE SWEEP (light sweep)
+   ========================= */
+
+/* Assure-toi que la card peut contenir le pseudo-element */
+.card{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bande de lumière */
+.card::before{
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -60%;
+  width: 55%;
+  height: 180%;
+  transform: translateX(-120%) rotate(18deg);
+
+  /* Shine (clair) */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.10) 40%,
+    rgba(255,255,255,.35) 50%,
+    rgba(255,255,255,.10) 60%,
+    transparent 100%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(.2px);
+}
+
+/* Animation au hover */
+.card:hover::before{
+  opacity: 1;
+  animation: shine-sweep .85s ease-in-out forwards;
+}
+
+@keyframes shine-sweep{
+  0%   { transform: translateX(-120%) rotate(18deg); }
+  100% { transform: translateX(240%)  rotate(18deg); }
+}
+
+/* Version dark mode : shine un peu plus subtil (évite l'effet “flash”) */
+html[data-theme="dark"] .card::before{
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.06) 40%,
+    rgba(255,255,255,.18) 50%,
+    rgba(255,255,255,.06) 60%,
+    transparent 100%
+  );
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  .card:hover::before{ animation: none !important; }
+}
+.card:hover::before{
+  opacity: 1;
+  animation: shine-sweep .85s ease-in-out forwards;
+  animation-iteration-count: 1;
+}
+/* =========================
+   BACK TO TOP – iOS STYLE
+   ========================= */
+.back-to-top{
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255,255,255,.75);
+  color: #0f172a;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+
+  opacity: 0;
+  transform: translateY(20px) scale(.9);
+  pointer-events: none;
+
+  transition:
+    opacity .35s ease,
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .25s ease;
+  z-index: 999;
+}
+
+/* Visible */
+.back-to-top.show{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Hover */
+.back-to-top:hover{
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 18px 45px rgba(0,0,0,.25);
+}
+
+/* Icône */
+.back-to-top i{
+  font-size: 1.25rem;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .back-to-top{
+  background: rgba(17, 26, 46, .7);
+  color: rgba(232, 238, 252, .95);
+  box-shadow: 0 14px 45px rgba(0,0,0,.45);
+}
+
+/* Mobile tap feedback */
+.back-to-top:active{
+  transform: scale(.95);
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  .back-to-top{
+    transition: none !important;
+  }
+}
