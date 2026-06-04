@@ -1,19 +1,34 @@
 /*
   Étudiant: Abdelhak KHALIFA
-  Données CV centralisées (JSON) — justifiable: séparation contenu / affichage
+  Données CV centralisées
 */
+
 const CV_DATA = {
   fullName: "Abdelhak KHALIFA",
-  headline: "Étudiant en Informatique – IoT & Développement Web",
-  stack: "(React, IoT, Liferay, DevOps)",
+
+  headline: "Étudiant en Informatique – Développement Logiciel, IA & IoT",
+
+  stack: "(Java, Python, React, IA, IoT, DevOps)",
+
   phone: "+33 6 25 57 65 86",
   email: "abdelhakkhalifa4@gmail.com",
   city: "Annecy, France",
   website: "https://www.oussdeep.com",
-  goal: "Alternance recherchée : Master 1 (2026–2027)",
+
+  goal:
+    "À la recherche d'une alternance à partir de septembre 2026 – Master 1 Informatique",
 
   objective:
-    "Je suis étudiant en 3e année de licence en informatique, numérique et gestion industrielle (L3 – INGI), spécialisé en IoT et systèmes embarqués. Je suis actuellement à la recherche d’une alternance pour mon année universitaire de Master 1 (2026–2027), afin de renforcer mes compétences techniques et contribuer activement à des projets innovants en entreprise.",
+    "Étudiant en informatique passionné par le développement logiciel, l’intelligence artificielle, la data et les systèmes connectés. Actuellement en Licence 3 Informatique, Numérique et Gestion Industrielle à l’IAE Savoie Mont Blanc, je recherche une alternance à partir de septembre 2026 dans le cadre de mon Master 1. Mon objectif est de contribuer à des projets innovants en développement logiciel, intelligence artificielle, analyse de données, cloud ou IoT tout en renforçant mes compétences techniques et professionnelles.",
+
+  targetRoles: [
+    "Développeur Full Stack",
+    "Développeur Logiciel",
+    "Développeur IA / Machine Learning Junior",
+    "Data Analyst Junior",
+    "Ingénieur Logiciel Junior",
+    "Développeur IoT"
+  ],
 
   experiences: [
     {
@@ -22,71 +37,179 @@ const CV_DATA = {
       company: "Beorn Technologies",
       location: "Toulouse, France",
       bullets: [
-        "Projet Smart Office 3.0.",
-        "Conception et développement de capteurs IoT pour l’automatisation du confort.",
-        "Sécurisation des accès (reconnaissance faciale, lecture de plaques d’immatriculation).",
+        "Participation au projet Smart Office 3.0.",
+        "Conception et développement de capteurs IoT pour l’automatisation du confort des espaces de travail.",
+        "Développement de fonctionnalités liées à la sécurisation des accès (reconnaissance faciale et lecture de plaques d’immatriculation).",
         "Mise en place de workflows intelligents sous Liferay.",
-        "Visualisation en temps réel des données IoT via une plateforme développée en React."
+        "Développement d’interfaces React pour la visualisation en temps réel des données IoT.",
+        "Intégration et consommation d’API REST."
       ],
-      tech: "React, Liferay, IoT, MQTT, JavaScript, APIs REST"
+      tech: "React, Liferay, IoT, MQTT, JavaScript, API REST"
     },
+
     {
       period: "Sept. 2023 — Avr. 2024",
-      title: "CEO Manager",
-      company: "Club DevOps – ISI Mahdia",
+      title: "Responsable DevOps Club",
+      company: "ISI Mahdia",
       location: "Mahdia, Tunisie",
       bullets: [
-        "Coordination des activités internes et organisation d’événements.",
-        "Gestion des recrutements.",
-        "Management d’une équipe de plus de 60 membres.",
-        "Suivi des performances systèmes et résolution de problèmes techniques.",
-        "Intégration et formation des nouveaux arrivants."
+        "Management et coordination d’une équipe de plus de 17 membres.",
+        "Organisation d’ateliers techniques sur Git, Docker et les bonnes pratiques DevOps.",
+        "Sensibilisation aux pipelines CI/CD et à l’automatisation.",
+        "Accompagnement des nouveaux membres dans leur montée en compétences."
       ]
     },
+
     {
       period: "Sept. 2023 — Déc. 2024",
       title: "Responsable Sponsoring & Marketing",
       company: "Club IT – ISIMA",
       location: "Mahdia, Tunisie",
       bullets: [
-        "Management d’équipe et pilotage des activités.",
-        "Mise en relation avec de nouveaux partenaires.",
-        "Suivi sponsoring et communication."
+        "Développement de partenariats avec des entreprises du secteur IT.",
+        "Gestion des actions de sponsoring et de communication.",
+        "Organisation et promotion d’événements technologiques."
       ]
     }
   ],
 
   education: [
     {
-      year: "2022 — 2025",
-      title: "Licence Économie et Gestion — Parcours Informatique, Numérique et Gestion Industrielle (L3 – INGI)",
-      place: "Institut Supérieur d’Informatique de Mahdia, Tunisie"
-    },
-    {
       year: "2025 — 2026",
-      title: "IAE Savoie Mont Blanc",
-      place: "Annecy, France"
+      title: "Licence 3 Informatique, Numérique et Gestion Industrielle (INGI)",
+      place: "IAE Savoie Mont Blanc – Annecy, France"
     },
+
+    {
+      year: "2022 — 2025",
+      title: "Licence Ingénierie des Systèmes Informatiques – spécialité IoT & Systèmes Embarqués",
+      place: "Institut Supérieur d’Informatique de Mahdia – Tunisie"
+    },
+
     {
       year: "2021 — 2022",
-      title: "Baccalauréat — Sciences de l’Informatique",
-      place: "Lycée secondaire Souassi, Mahdia"
+      title: "Baccalauréat Sciences de l’Informatique",
+      place: "Lycée Secondaire Souassi – Mahdia, Tunisie"
     }
   ],
 
   skills: [
-    { category: "Programmation", items: ["React", "Java", "Python", "PHP", "JavaScript", "HTML", "CSS", "C++", "SQL"] },
-    { category: "Bases de données", items: ["MySQL", "PostgreSQL"] },
-    { category: "IoT & Embarqué", items: ["Capteurs", "MQTT", "Communication temps réel"] },
-    { category: "Tests & Qualité", items: ["Tests unitaires", "Validation"] },
-    { category: "DevOps", items: ["Git", "GitHub", "Bitbucket", "CI/CD (bases)"] },
-    { category: "Data", items: ["Power BI"] },
-    { category: "Serveurs", items: ["Tomcat"] },
-    { category: "CMS", items: ["Liferay"] },
-    { category: "Méthodologies", items: ["Agile", "Scrum", "Kanban"] },
-    { category: "Modélisation", items: ["UML"] }
+    {
+      category: "Programmation",
+      items: [
+        "Java",
+        "Python",
+        "JavaScript",
+        "PHP",
+        "C",
+        "C++",
+        "SQL"
+      ]
+    },
+
+    {
+      category: "Développement Web",
+      items: [
+        "React",
+        "Node.js",
+        "HTML",
+        "CSS",
+        "API REST"
+      ]
+    },
+
+    {
+      category: "Bases de données",
+      items: [
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB"
+      ]
+    },
+
+    {
+      category: "Intelligence Artificielle & Data",
+      items: [
+        "Python",
+        "Analyse de données",
+        "Power BI",
+        "Pandas (bases)",
+        "NumPy (bases)",
+        "Machine Learning (bases)"
+      ]
+    },
+
+    {
+      category: "IoT & Systèmes embarqués",
+      items: [
+        "MQTT",
+        "Capteurs connectés",
+        "Communication temps réel",
+        "Collecte de données IoT"
+      ]
+    },
+
+    {
+      category: "DevOps & Systèmes",
+      items: [
+        "Git",
+        "GitHub",
+        "Bitbucket",
+        "Docker",
+        "CI/CD (bases)",
+        "Linux"
+      ]
+    },
+
+    {
+      category: "Outils & Méthodes",
+      items: [
+        "Jira",
+        "UML",
+        "Agile",
+        "Scrum",
+        "Kanban",
+        "Liferay",
+        "Tomcat"
+      ]
+    }
   ],
 
-  languages: ["Français", "Anglais"],
-  hobbies: ["Football", "Baby-foot"]
+  projects: [
+    {
+      title: "Plateforme IoT Temps Réel",
+      description:
+        "Développement d’une application de visualisation de données IoT en temps réel avec React, MQTT et MongoDB."
+    },
+
+    {
+      title: "API REST",
+      description:
+        "Conception et intégration d’API REST pour la communication entre différents services."
+    },
+
+    {
+      title: "Conteneurisation Docker",
+      description:
+        "Mise en place d’environnements de développement et de déploiement avec Docker."
+    },
+
+    {
+      title: "Pipeline CI/CD",
+      description:
+        "Automatisation des phases de build et de test via Git et outils DevOps."
+    }
+  ],
+
+  languages: [
+    "Français : Courant",
+    "Anglais : Intermédiaire"
+  ],
+
+  hobbies: [
+    "Football",
+    "Veille technologique",
+    "Intelligence artificielle",
+    "Développement logiciel"
+  ]
 };
